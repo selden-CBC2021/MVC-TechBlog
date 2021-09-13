@@ -1,0 +1,27 @@
+
+
+<div class="container border mt-4,border border-light p-3 mb-4">
+  <div class="card custom-card">
+    <ul class="list-unstyled">
+      {{#each trail}}
+      <li class="media">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1 bold">{{user.name}}</h5>
+          {{{content}}}
+          <div class="card-text text-end border-bottom">
+            <p class="text-muted fst-italic fs-6"> Posted on {{format_date createdAt}}</p>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    <form class="field text-center" id="post-form">
+      <div class="control" id="editor"></div>
+      <button type="button" class="btn mx-1 col-2 btn-secondary comment" id="submit-quill" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment">
+      <i class="bi bi-arrow-left-right"></i>
+    </form> 
+  </div>
+</div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="/js/comment.js"></script>

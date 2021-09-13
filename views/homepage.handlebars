@@ -1,0 +1,66 @@
+{{#if posts.length}}
+<div class="col-8 my-4 mx-auto " id="post-list">
+  {{#each posts as |post|}}
+  <div class="card custom-card">
+    {{#if post.trail}}
+    <ul class="list-unstyled card-body text-break">
+      {{#each post.trail as |trail|}}
+      <li class="media">
+        <div class="media-body border-bottom py-1">
+          <p class="mt-0 mb-1 card-text pb-1"></p><strong>{{trail.user.name}}</strong></p>
+          {{{trail.content}}}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    
+    {{#if post.content}}
+    <div class="card-body">
+      <h5 class="card-text">
+          {{{post.content}}}
+      </h5>
+    </div>
+    <div class="card-footer text-end">
+      <p class="text-muted fst-italic fs-6">Posted by <strong>{{post.user.name}}</strong> on {{format_date createdAt}} </p>
+    </div>
+    {{else}}
+    <div class="card-footer text-end">
+      <p class="fs-6 fst-italic text-muted">Comments made by {{post.user.name}} on {{format_date createdAt}}</p>
+    </div>
+    {{/if}}
+    {{#if post.follow_tag}}
+    {{/if}}
+    {{#if post.content}}
+    <div class="btn-group" role="group" aria-label="post options">
+      
+    
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Like">
+      <i class="bi bi-heart"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary comment" id="{{post.id}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Comment">
+      <i class="bi bi-arrow-left-right"></i>
+      </button>
+    </div>
+    
+    {{else}}
+    
+    <div class="btn-group" role="group" aria-label="post options">
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Like">
+      <i class="bi bi-heart"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary comment" id="{{post.id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="comment">
+      <i class="bi bi-arrow-left-right"></i>
+      </button>
+    </div>
+    {{/if}}
+  </div>
+  <br>
+  {{/each}}
+  </div>
+{{/if}}
+
+
+
+
+<script src="./js/comment-button.js"></script>
