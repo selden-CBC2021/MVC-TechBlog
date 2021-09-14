@@ -15,6 +15,7 @@
 ## Installation
 ## Usage
   --Type 'node server.js' to begin listening on your localhost (which ever port you designated in the .env file)
+  --If you're on the deployed site on Heroku, you can click on the Tech Blog text or the Dashboard text to go to the login/signup page, after you created an account and password you can sign in and create a blog post, you can also comment on it or other people's blogs.
 ## License
   --https://opensource.org/licenses/MIT
   <br />
